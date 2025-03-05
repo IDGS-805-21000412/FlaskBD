@@ -1,71 +1,75 @@
 {% extends "layout.html" %}
+{% block container%}
 
-{% block container %}
-
-<div class="py-32"
 <div class="relative overflow-x-auto">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">           
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Product name
+                    Nombre
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Color
+                    Apellido
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Category
+                    Correo
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Price
+                    Editar
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Detalles
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Eliminar
                 </th>
             </tr>
         </thead>
         <tbody>
+            {% for alum in alumnos %}
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
+                    {{alum.nombre}}
                 </th>
                 <td class="px-6 py-4">
-                    Silver
+                    {{alum.apaterno}}
                 </td>
                 <td class="px-6 py-4">
-                    Laptop
-                </td>
+                    {{alum.email}}
+                </td>            
                 <td class="px-6 py-4">
-                    $2999
-                </td>
+                    <a href="modificar?id={{alum.id}}" class="flex items-center justify-center gap-2 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
+                        <svg class="w-6 h-6 text-blue-700 hover:text-white dark:text-blue-500 dark:hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
+                        </svg>
+                        <span>Editar</span>
+                    </a>
+                </td>                 
+                <td class="px-6 py-4">
+                    <a href="modificar?id={{alum.id}}" class="flex items-center justify-center gap-2 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
+                        <svg class="w-6 h-6 text-blue-700 hover:text-white dark:text-blue-500 dark:hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
+                        </svg>
+                        <span>Detalles</span>
+                    </a>
+                </td>  
+                <td class="px-6 py-4">
+                    <a href="modificar?id={{alum.id}}" class="flex items-center justify-center gap-2 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
+                        <svg class="w-6 h-6 text-blue-700 hover:text-white dark:text-blue-500 dark:hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
+                        </svg>
+                        <span>Eliminar</span>
+                    </a>
+                </td>                               
             </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td class="px-6 py-4">
-                    White
-                </td>
-                <td class="px-6 py-4">
-                    Laptop PC
-                </td>
-                <td class="px-6 py-4">
-                    $1999
-                </td>
-            </tr>
-            <tr class="bg-white dark:bg-gray-800">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td class="px-6 py-4">
-                    Black
-                </td>
-                <td class="px-6 py-4">
-                    Accessories
-                </td>
-                <td class="px-6 py-4">
-                    $99
-                </td>
-            </tr>
+            {%endfor%}
         </tbody>
+        <a href="Alumnos1" class="flex items-center justify-center gap-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+            <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
+            </svg>
+            <span>Nuevo</span>
+        </a>
     </table>
 </div>
-
-{% endblock %}
+{%endblock%}
